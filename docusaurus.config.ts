@@ -33,6 +33,23 @@ const config: Config = {
 
   plugins: [
     'docusaurus-plugin-sass',
+    function () {
+      return {
+        name: 'docusaurus-plugin-redirect',
+        async onPreBuild({ redirects, route }) {
+          // Redirect from the root to /docs/preface/
+          if (route.path === '/') {
+            // Redirect to /docs/preface/
+            route.redirect = '/docs/preface/introduction';
+          }
+          redirects.push({
+            from: '/',
+            to: '/docs/preface/introduction',
+            status: 301, // Permanent redirect
+          });
+        },
+      };
+    },
   ],
   presets: [
     [
