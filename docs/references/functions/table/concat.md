@@ -44,7 +44,7 @@ The function inserts the specified separator between the values in the table.
 
 ##### Example 1: Using a space (" ") as the separator
 
-```Lua
+```lua
 local tbl = { "The", "rocket", "lands", "on", "the", "moon" }
 
 print(table.concat(tbl," ")) 
@@ -54,7 +54,7 @@ print(table.concat(tbl," "))
 
 ##### Example 2: Using a hyphen ("-") as the separator
 
-```Lua
+```lua
 local tbl = { "The", "rocket", "lands", "on", "the", "moon" }
 
 print(table.concat(tbl, "-")) 
