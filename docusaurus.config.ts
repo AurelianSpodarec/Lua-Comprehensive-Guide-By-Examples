@@ -98,13 +98,19 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
+          href: "/docs/preface/introduction",
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
+        // { to: '/blog', label: 'Blog', position: 'left' }, Maybe later
         {
           href: 'https://github.com/AurelianSpodarec/LuaDocs',
           label: 'GitHub',
           position: 'right',
+        },
+        {
+          href: 'https://discord.gg/Jp2HFx3KTH',
+          label: 'Discord',
+          position: 'right'
         },
       ],
     },

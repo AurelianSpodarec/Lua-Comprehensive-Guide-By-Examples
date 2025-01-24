@@ -1,6 +1,5 @@
 ---
     title: table.concat()
-    slug: /reference/functions/table/concat
 ---
 
 The `table.concat()` function is used to concatinate table values into a string.
