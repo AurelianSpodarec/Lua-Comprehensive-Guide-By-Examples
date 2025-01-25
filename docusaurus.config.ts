@@ -79,6 +79,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    metadata: [
+      {
+        name: "google-fonts",
+        content: "https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap",
+      },
+    ],
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'Lua',

@@ -1,15 +1,15 @@
 // ==========================================================================
-// # Cheat - hotfixes
+// # Cheat - hotfixes; needs to be always refactored at some point
 // =========================================================================
 
 .icon-link-mask::before {
-  background-color: currentcolor;
   content: "";
-  display: flex;
-  height: 16px;
+  background-color: currentcolor;
   mask-repeat: no-repeat;
   mask-size: 100% 100%;
   mask-position: center center;
+  display: flex;
+  height: 16px;
 }
 
 .icon-link-discord {
@@ -25,4 +25,21 @@
     width: 22px;
     height: 20px;
   }
+}
+
+.menu__link .menu__link--sublist {
+  font-family: "semibold";
+  color: #EEEEF0!important;
+}
+
+.theme-doc-sidebar-item-link {
+  font-size: 14px;
+}
+
+.main-wrapper {
+  background: #030712;
+}
+
+.col {
+  padding: 0 80px;
 }

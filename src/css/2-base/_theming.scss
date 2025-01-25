@@ -4,6 +4,7 @@
 
 :root {
   --ifm-color-primary: #293aa2;
+  // --ifm-spacing-horizontal: 80px;
 
   // --ifm-background-color: #030712;
 
@@ -18,13 +19,12 @@
 }
 
 [data-theme="dark"] {
-  /* Navbar */
+  
   --ifm-color-primary: #293aa2;
-  // Body
+  
   --ifm-background-color: #030712;
   --ifm-background-surface-color: #030712;
   
-  // Other
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
   --ifm-color-primary-darkest: #1a8870;
