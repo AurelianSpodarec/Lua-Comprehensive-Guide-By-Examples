@@ -101,7 +101,7 @@ const config: Config = {
           label: 'Docs',
           href: "/docs/preface/introduction",
         },
-        // { to: '/blog', label: 'Blog', position: 'left' }, Maybe later
+        { to: '/blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/AurelianSpodarec/LuaDocs',
           label: 'GitHub',
