@@ -162,9 +162,29 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['lua'], 
+      additionalLanguages: ['lua'],
     },
   } satisfies Preset.ThemeConfig,
 };
+
+const GOOGLE_ANALYTICS_ID = process.env.GOOGLE_ANALYTICS_ID;
+
+config.scripts = [
+  {
+    src: `https://www.googletagmanager.com/gtm.js?id=${GOOGLE_ANALYTICS_ID}`,
+    async: true,
+  },
+  {
+    innerHTML: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GOOGLE_ANALYTICS_ID}');
+    `,
+    type: 'text/javascript',
+    async: true,
+  },
+];
+
 
 export default config;

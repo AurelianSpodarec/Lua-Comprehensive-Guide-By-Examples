@@ -4,6 +4,9 @@
 
 :root {
   --ifm-color-primary: #293aa2;
+
+  // --ifm-background-color: #030712;
+
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
   --ifm-color-primary-darkest: #205d3b;
@@ -16,7 +19,11 @@
 
 [data-theme="dark"] {
   /* Navbar */
-  --ifm-navbar-link-color: red --ifm-color-primary: #25c2a0;
+  --ifm-color-primary: #293aa2;
+  // Body
+  --ifm-background-color: #030712;
+  --ifm-background-surface-color: #030712;
+  
   // Other
   --ifm-color-primary-dark: #21af90;
   --ifm-color-primary-darker: #1fa588;
@@ -25,9 +32,4 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-}
-
-body,
-.main-wrapper {
-  background: #030712;
 }
