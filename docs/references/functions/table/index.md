@@ -19,7 +19,7 @@ In Lua, `table` is the only way to represent stored data.
 &nbsp;&nbsp;&nbsp; Creates a new `table` object.  
 
 ## Functions
-
+<!-- 
 [`next()`](/reference/functions/next)  
 &nbsp;&nbsp;&nbsp; Allows a program to traverse all fields of a table  
 
@@ -39,11 +39,11 @@ In Lua, `table` is the only way to represent stored data.
 &nbsp;&nbsp;&nbsp; Used to ilerate over table  
 
 [`ipairs()`](/reference/functions/ipairs)  
-&nbsp;&nbsp;&nbsp; Used to ilerate over tble  
+&nbsp;&nbsp;&nbsp; Used to ilerate over tble   -->
 
 ## Instance Methods
 
-[`table.insert()`](/reference/global-objects/table/insert)  
+<!-- [`table.insert()`](/reference/global-objects/table/insert)  
 &nbsp;&nbsp;&nbsp; Adds one element to the table.  
     
 [`table.remove()`](/reference/global-objects/table/remove)    
@@ -61,7 +61,7 @@ In Lua, `table` is the only way to represent stored data.
 [`table.sort()`](/reference/global-objects/table/sort)    
 &nbsp;&nbsp;&nbsp; Sorts the values in a table.  
 
-[`table.move()`](/reference/global-objects/table/move)    
+[`table.move()`](/reference/global-objects/table/move)     -->
 &nbsp;&nbsp;&nbsp; Moves elements from one table to another table and returns it.
  
 ## Examples
