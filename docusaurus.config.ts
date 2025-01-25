@@ -53,7 +53,7 @@ const config: Config = {
     [
       '@docusaurus/plugin-google-analytics',
       {
-        trackingID: process.env.GOOGLE_ANALYTICS_ID,
+        trackingID: process.env.NEXT_GOOGLE_ANALYTICS_ID,
       },
     ],
   ],
