@@ -1,5 +1,5 @@
 ---
-    title: string.byte() 
+  title: string.byte() 
 ---
 
 The `string.byte` function retrieves the numeric ASCII (or Unicode) value of a character in a string.
