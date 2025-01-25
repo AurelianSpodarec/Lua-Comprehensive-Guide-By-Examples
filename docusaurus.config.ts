@@ -50,6 +50,12 @@ const config: Config = {
         },
       };
     },
+    [
+      '@docusaurus/plugin-google-analytics',
+      {
+        trackingID: process.env.GOOGLE_ANALYTICS_ID,
+      },
+    ],
   ],
   presets: [
     [
@@ -162,7 +168,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['lua'], 
+      additionalLanguages: ['lua'],
     },
   } satisfies Preset.ThemeConfig,
 };
