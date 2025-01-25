@@ -2,60 +2,47 @@ import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
+const googleAnalyticsTrackingID = process.env.GOOGLE_ANALYTICS_ID;
 
 const config: Config = {
   title: 'Lua Docs',
   tagline: 'Modern Documentation for Lua',
   favicon: 'img/favicon.ico',
-
-  // Set the production url of your site here
   url: 'https://luadocs.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'aurelianspodarec', // Usually your GitHub org/user name.
-  projectName: 'luadocs', // Usually your repo name.
-
+  organizationName: 'aurelianspodarec',
+  projectName: 'luadocs',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
   plugins: [
     'docusaurus-plugin-sass',
     function () {
       return {
         name: 'docusaurus-plugin-redirect',
         async onPreBuild({ redirects, route }) {
-          // Redirect from the root to /docs/preface/
           if (route.path === '/') {
-            // Redirect to /docs/preface/
             route.redirect = '/docs/preface/introduction';
           }
           redirects.push({
             from: '/',
             to: '/docs/preface/introduction',
-            status: 301, // Permanent redirect
+            status: 301,
           });
         },
       };
     },
-    [
-      '@docusaurus/plugin-google-analytics',
-      {
-        trackingID: process.env.GOOGLE_ANALYTICS_ID,
-      },
-    ],
+    ...(googleAnalyticsTrackingID ? [
+      [
+        '@docusaurus/plugin-google-analytics',
+        {
+          trackingID: googleAnalyticsTrackingID,
+        },
+      ]
+    ] : []),
   ],
   presets: [
     [
@@ -63,8 +50,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/aurelianspodarec/luadocs/tree/main/',
         },
@@ -74,11 +59,8 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/aurelianspodarec/luadocs/tree/main/',
-          // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -91,7 +73,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'Lua',
@@ -100,6 +81,7 @@ const config: Config = {
         src: 'https://imgs.search.brave.com/KjiSEUxgHxkAad5nl7RNig3cqV4MRpGJ9hUeufy-p1o/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9jL2NmL0x1/YS1Mb2dvLnN2Zy82/NDBweC1MdWEtTG9n/by5zdmcucG5n',
       },
       items: [
+        { type: "docsVersionDropdown", position: "left" },
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
