@@ -3,6 +3,9 @@
 // =========================================================================
 
 .navbar {
+  backdrop-filter: blur(8px);
+  background-color: transparent!important;
+
   &__logo {
     height: 2.75rem;
   }
