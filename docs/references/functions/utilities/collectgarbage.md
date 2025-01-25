@@ -2,7 +2,7 @@
   title: collectgarbage()
 ---
 
-Lua performs automatic memory management through garbage collection (GC). This means you do not need to explicitly allocate or free memory. Lua's garbage collector automatically tracks memory usage, identifying and reclaiming memory used by objects that are no longer accessible in the program.
+Lua performs automatic memory management through garbage collection (GC), meaning you do not need to explicitly allocate or free memory. Lua's garbage collector automatically tracks memory usage, identifying and reclaiming memory used by objects that are no longer accessible in the program.
 
 ### How It Works
 
@@ -23,22 +23,22 @@ You can configure and control garbage collection using the `collectgarbage()` fu
 
 ### `collectgarbage` Function
 
-The `collectgarbage` function provides a generic interface to Lua’s garbage collector. Its behavior depends on the `opt` argument provided.  
+The `collectgarbage` function provides a generic interface to Lua’s garbage collector. Its behavior depends on the `operation` argument provided.  
 
 #### Syntax  
 ```lua
-collectgarbage(opt [, arg])
+collectgarbage(operation [, arg])
 ```
 
 #### Parameters  
-- **`opt`**: A string specifying the desired operation (see options below).  
+- **`operation`**: A string specifying the desired operation (see options below).  
 - **`arg`** (optional): An argument for specific operations (e.g., step size or collector settings).  
 
 ---
 
 ### Options and Descriptions  
 
-Each `opt` parameter determines the action of the garbage collector:  
+Each `operation` parameter determines the action of the garbage collector:  
 
 #### `"collect"`  
 - **Description**: Performs a full garbage collection cycle.  
@@ -61,7 +61,7 @@ Each `opt` parameter determines the action of the garbage collector:
 
 #### `"isrunning"`  
 - **Description**: Checks whether the garbage collector is currently running.  
-- **Returns**: `true` if the collector is running, otherwise `false`.  
+- **Returns**: `true` if the collector is running; otherwise, `false`.  
 
 #### `"incremental"`  
 - **Description**: Changes the garbage collector mode to incremental.  
@@ -83,16 +83,16 @@ Each `opt` parameter determines the action of the garbage collector:
 #### Using `"count"`  
 Retrieve the total memory in use by Lua:  
 ```lua
-local memory = collectgarbage("count")
-print(memory .. " KB")
+local memoryUsage = collectgarbage("count")
+print(memoryUsage .. " KB")
 -- Output: Total memory used by Lua.
 ```
 
 #### Using `"step"`  
 Perform a single GC step:  
 ```lua
-local stepComplete = collectgarbage("step", 10)
-print(stepComplete)
+local stepCompleted = collectgarbage("step", 10)
+print(stepCompleted)
 -- Output: true (if the step completed a cycle)
 ```
 
@@ -113,8 +113,8 @@ collectgarbage("generational", 50, 100)
 #### Checking If the Collector Is Running  
 Verify the current state of the garbage collector:  
 ```lua
-local running = collectgarbage("isrunning")
-print(running)
+local isRunning = collectgarbage("isrunning")
+print(isRunning)
 -- Output: true or false
 ```
 
@@ -150,4 +150,4 @@ collectgarbage("restart")
 - Objects accessible only through the **C registry** (e.g., global environment) are not collected because Lua assumes they might be used by C code.  
 - Finalizers can temporarily "resurrect" dead objects, delaying their collection (see §2.5.3 in the Lua reference manual).  
 
-Reference: https://lua.org/manual/5.4/manual.html#pdf-assert and https://lua.org/manual/5.4/manual.html#2.5
+**Reference**: [Lua 5.4 Manual - collectgarbage()](https://lua.org/manual/5.4/manual.html#pdf-collectgarbage)

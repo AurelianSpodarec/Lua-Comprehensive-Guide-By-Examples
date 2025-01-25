@@ -8,29 +8,29 @@ The `tostring` function in Lua is used to convert a value of any type into a str
 
 ### Syntax  
 ```lua
-tostring(v)
+tostring(value)
 ```
 
 ### Parameters  
 
-- **`v`**:  
+- **`value`**:  
   The value to be converted to a string. This can be of any Lua type, including numbers, tables, functions, and more.
 
 ---
 
 ### Return Value  
 
-- Returns the string representation of the input value `v`.
+- Returns the string representation of the input value `value`.
 
 ---
 
 ### Behavior  
 
 1. **Default Conversion**:  
-   - If the value `v` is a number, string, boolean, or nil, `tostring` converts it to a string using Lua's default conversion rules.
+   - If the value `value` is a number, string, boolean, or nil, `tostring` converts it to a string using Lua's default conversion rules.
 
 2. **Metatables and Custom Formatting**:  
-   - If `v` has a metatable with a `__tostring` field, `tostring` calls the function stored in this field, passing `v` as the argument. The return value from this function is used as the result of `tostring`.
+   - If `value` has a metatable with a `__tostring` field, `tostring` calls the function stored in this field, passing `value` as the argument. The return value from this function is used as the result of `tostring`.
    - If the metatable contains a `__name` field with a string value, this string may be included in the final output of `tostring`.
 
 3. **Full Control**:  
@@ -60,14 +60,14 @@ print(tostring("Hello"))     -- Output: "Hello"
 #### Using Metatables  
 ```lua
 -- Define a table with a custom __tostring method
-local myTable = {}
-setmetatable(myTable, {
+local tableData = {}
+setmetatable(tableData, {
     __tostring = function(t) 
         return "This is a custom table!"
     end
 })
 
-print(tostring(myTable))      -- Output: "This is a custom table!"
+print(tostring(tableData))      -- Output: "This is a custom table!"
 
 -- Define a table with a __name field
 local anotherTable = {}

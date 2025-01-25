@@ -8,12 +8,12 @@ The `ipairs` function in Lua provides an iterator for sequentially traversing a 
 
 ### Syntax  
 ```lua
-ipairs(t)
+ipairs(tableData)
 ```
 
 ### Parameters  
 
-- **`t`**:  
+- **`tableData`**:  
   A table to be iterated over. The table is expected to have numeric keys starting from `1` in sequence.  
 
 ---
@@ -30,7 +30,7 @@ The `ipairs` function returns three values:
 ### Behavior  
 
 1. **Iteration Process**:  
-   - The `ipairs` iterator function produces key-value pairs starting from `(1, t[1])`, `(2, t[2])`, and so on, until the first absent or `nil` value is encountered.  
+   - The `ipairs` iterator function produces key-value pairs starting from `(1, tableData[1])`, `(2, tableData[2])`, and so on, until the first absent or `nil` value is encountered.  
    - Iteration stops at the first non-consecutive or missing numeric key.  
 
 2. **Array-Like Tables**:  
@@ -54,10 +54,10 @@ The `ipairs` function returns three values:
 
 #### Basic Iteration with `ipairs`  
 ```lua
-local t = {10, 20, 30}
+local tableData = {10, 20, 30}
 
-for i, v in ipairs(t) do
-    print(i, v)
+for index, value in ipairs(tableData) do
+    print(index, value)
 end
 -- Output:
 -- 1   10
@@ -67,10 +67,10 @@ end
 
 #### Stopping at the First `nil` Value  
 ```lua
-local t = {10, 20, nil, 40}
+local tableData = {10, 20, nil, 40}
 
-for i, v in ipairs(t) do
-    print(i, v)
+for index, value in ipairs(tableData) do
+    print(index, value)
 end
 -- Output:
 -- 1   10
@@ -80,10 +80,10 @@ end
 
 #### Ignoring Non-Numeric Keys  
 ```lua
-local t = {10, 20, ["key"] = 30, 40}
+local tableData = {10, 20, ["key"] = 30, 40}
 
-for i, v in ipairs(t) do
-    print(i, v)
+for index, value in ipairs(tableData) do
+    print(index, value)
 end
 -- Output:
 -- 1   10
@@ -93,10 +93,10 @@ end
 
 #### Table with Gaps  
 ```lua
-local t = {10, nil, 30}
+local tableData = {10, nil, 30}
 
-for i, v in ipairs(t) do
-    print(i, v)
+for iindex, value in ipairs(tableData) do
+    print(inex, value)
 end
 -- Output:
 -- 1   10
@@ -114,14 +114,14 @@ print(iterator, table, index)
 
 #### Using the Iterator Function  
 ```lua
-local t = {10, 20, 30}
-local iter, tbl, i = ipairs(t)
+local tableData = { 10, 20, 30 }
+local iterator, currentTable, currentIndex = ipairs(tableData)
 
-i, v = iter(tbl, i)  -- Moves to the first pair
-print(i, v)          -- Output: 1   10
+currentIndex, currentValue = iterator(currentTable, currentIndex)  -- Moves to the first pair
+print(currentIndex, currentValue)                                 -- Output: 1   10
 
-i, v = iter(tbl, i)  -- Moves to the next pair
-print(i, v)          -- Output: 2   20
+currentIndex, currentValue = iterator(currentTable, currentIndex)  -- Moves to the next pair
+print(currentIndex, currentValue)                                 -- Output: 2   20
 ```
 
 ---

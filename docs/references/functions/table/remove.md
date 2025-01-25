@@ -6,11 +6,11 @@ The `table.remove()` method removes one element from the table. This method chan
 
 ## Syntax
 ```lua
-table.remove(tbl, index)
+table.remove(tableData, index)
 ```
 
 ## Parameters
-`tbl`  
+`tableData`  
 &nbsp;&nbsp;&nbsp;  The table where the item should be removed from.  
 
 `index` (optional)  

@@ -7,12 +7,12 @@ The `table.concat()` function combines the values in a table into a single strin
 ### Syntax
 
 ```lua
-table.concat(tbl, seperator)
+table.concat(tableData, seperator)
 ```
 
 ### Parameter
 
-`tbl`
+`tableData`
 The table whose values will be concatenated into a string.
 
 `seperator (optional)`
@@ -24,9 +24,9 @@ Used as a separator between values.
 The function concatenates all values in the table without adding any separators.
 
 ```Lua
-local tbl = {"The","fox","jumps","over","the","lazy","dog",}
+local tableData = {"The","fox","jumps","over","the","lazy","dog",}
 
-print(table.concat(tbl)) 
+print(table.concat(tableData)) 
 
 -- Output: Thefoxjumpsoverthelazydog
 ```
@@ -45,9 +45,9 @@ The function inserts the specified separator between the values in the table.
 ##### Example 1: Using a space (" ") as the separator
 
 ```lua
-local tbl = { "The", "rocket", "lands", "on", "the", "moon" }
+local tableData = { "The", "rocket", "lands", "on", "the", "moon" }
 
-print(table.concat(tbl," ")) 
+print(table.concat(tableData," ")) 
 
 -- Output: The rocket lands on the moon
 ```
@@ -55,9 +55,9 @@ print(table.concat(tbl," "))
 ##### Example 2: Using a hyphen ("-") as the separator
 
 ```lua
-local tbl = { "The", "rocket", "lands", "on", "the", "moon" }
+local tableData = { "The", "rocket", "lands", "on", "the", "moon" }
 
-print(table.concat(tbl, "-")) 
+print(table.concat(tableData, "-")) 
 
 -- Output: The-rocket-lands-on-the-moon
 ```

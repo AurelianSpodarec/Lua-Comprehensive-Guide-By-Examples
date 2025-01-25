@@ -70,8 +70,8 @@ print("String:", str, "Number:", num, "Boolean:", bool)
 
 #### Printing Tables  
 ```lua
-local myTable = {x = 1, y = 2}
-print("Table:", myTable)  -- Output: Table: table: 0x... (memory address)
+local tableData = {x = 1, y = 2}
+print("Table:", tableData)  -- Output: Table: table: 0x... (memory address)
 ```
 
 #### Debugging Example  

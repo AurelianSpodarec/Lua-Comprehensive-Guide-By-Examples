@@ -8,24 +8,24 @@ The `pairs` function in Lua is used to iterate over all key-value pairs in a tab
 
 ### Syntax  
 ```lua
-pairs(t)
+pairs(tableData)
 ```
 
 ### Parameters  
 
-- **`t`**:  
+- **`tableData`**:  
   The table to be traversed. This argument is required.  
 
 ---
 
 ### Return Values  
 
-- If the table `t` has a metamethod `__pairs`, `pairs` calls this metamethod with `t` as the argument and returns the first three results from that call.  
-- Otherwise, `pairs` returns three values: the `next` function, the table `t`, and `nil`. This enables the following construction:  
+- If the table `tableData` has a metamethod `__pairs`, `pairs` calls this metamethod with `tableData` as the argument and returns the first three results from that call.  
+- Otherwise, `pairs` returns three values: the `next` function, the table `tableData`, and `nil`. This enables the following construction:  
   ```lua
-  for k, v in pairs(t) do body end
+  for key, value in pairs(tableData) do body end
   ```
-  This loop will iterate over all key-value pairs in the table `t`.  
+  This loop will iterate over all key-value pairs in the table `tableData`.  
 
 ---
 
@@ -57,29 +57,29 @@ pairs(t)
 
 #### Basic Usage  
 ```lua
-local myTable = {a = 1, b = 2, c = 3}
-for key, value in pairs(myTable) do
+local tableData = {a = 1, b = 2, c = 3}
+for key, value in pairs(tableData) do
     print(key, value)  -- Output: a 1, b 2, c 3 (order may vary)
 end
 ```
 
 #### Using Metamethods  
 ```lua
-local myTable = setmetatable({}, {
+local tableData = setmetatable({}, {
     __pairs = function(t)
         return function() return "customKey", "customValue" end
     end
 })
 
-for key, value in pairs(myTable) do
+for key, value in pairs(tableData) do
     print(key, value)  -- Output: customKey customValue
 end
 ```
 
 #### Checking for Empty Tables  
 ```lua
-local emptyTable = {}
-for key, value in pairs(emptyTable) do
+local tableData = {}
+for key, value in pairs(tableData) do
     print(key, value)  -- This block will not execute
 end
 print("Table is empty.")  -- Output: Table is empty.
@@ -87,15 +87,15 @@ print("Table is empty.")  -- Output: Table is empty.
 
 #### Modifying a Table During Iteration  
 ```lua
-local myTable = {a = 1, b = 2, c = 3}
-for key, value in pairs(myTable) do
+local tableData = {a = 1, b = 2, c = 3}
+for key, value in pairs(tableData) do
     if key == "b" then
-        myTable[key] = nil  -- Set the field 'b' to nil
+        tableData[key] = nil  -- Set the field 'b' to nil
     end
 end
 
 -- After modification
-for k, v in pairs(myTable) do
+for k, v in pairs(tableData) do
     print(k, v)  -- Output: a 1, c 3 (b is not printed)
 end
 ```

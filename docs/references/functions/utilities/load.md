@@ -2,25 +2,25 @@
   title: load()
 ---
 
-The `load` function in Lua is used to load a chunk of code, either from a string or a function, compiling it into a Lua function that can be executed later. This function is essential for dynamically loading and executing Lua code at runtime.  
+The `load` function in Lua is used to load a chunk of code, either from a string or a function, compiling it into a Lua function that can be executed later. This function is essential for dynamically loading and executing Lua code at runtime.
 
 ---
 
 ### Syntax  
 ```lua
-load(chunk [, chunkname [, mode [, env]]])
+load(chunkData [, chunkName [, mode [, environment]]])
 ```
 
 ### Parameters  
 
-- **`chunk`**:  
+- **`chunkData`**:  
   The code to be loaded. It can either be:  
   - A **string** containing the Lua code, or  
   - A **function** that, when called, returns pieces of the Lua code as strings.  
 
-- **`chunkname`** (optional):  
+- **`chunkName`** (optional):  
   A string that serves as the name of the chunk, primarily for error messages and debugging.  
-  Defaults to `chunk` if `chunk` is a string, or to `="(load)"` otherwise.  
+  Defaults to `chunk` if `chunkData` is a string, or to `="(load)"` otherwise.  
 
 - **`mode`** (optional):  
   A string that controls the type of chunk to load:  
@@ -28,7 +28,7 @@ load(chunk [, chunkname [, mode [, env]]])
   - `"t"`: Load only text chunks.  
   - `"bt"`: Load both binary and text chunks (default).  
 
-- **`env`** (optional):  
+- **`environment`** (optional):  
   A table that serves as the environment for the loaded chunk. If provided, the first upvalue of the resulting function is set to this value.  
 
 ---
@@ -43,8 +43,8 @@ load(chunk [, chunkname [, mode [, env]]])
 ### Behavior  
 
 1. **Loading from String or Function**:  
-   - When `chunk` is a string, the entire string is treated as the Lua code to load.  
-   - When `chunk` is a function, `load` calls it repeatedly to gather pieces of the code until it returns an empty string, `nil`, or no value, indicating the end of the chunk.  
+   - When `chunkData` is a string, the entire string is treated as the Lua code to load.  
+   - When `chunkData` is a function, `load` calls it repeatedly to gather pieces of the code until it returns an empty string, `nil`, or no value, indicating the end of the chunk.  
 
 2. **Error Handling**:  
    - If the chunk contains syntactical errors, `load` does not execute the code but returns an error message.  
@@ -52,7 +52,7 @@ load(chunk [, chunkname [, mode [, env]]])
 3. **Upvalues and Environments**:  
    - The resulting function has exactly one upvalue, `_ENV`, when loading a main chunk.  
    - For binary chunks, the number of upvalues can vary, and there is no guarantee that the first upvalue is `_ENV`.  
-   - If an `env` table is provided, the first upvalue is initialized with its value; otherwise, it defaults to the global environment. Other upvalues are set to `nil`.  
+   - If an `environment` table is provided, the first upvalue is initialized with its value; otherwise, it defaults to the global environment. Other upvalues are set to `nil`.  
 
 4. **Mode Control**:  
    - The `mode` parameter specifies whether to load text, binary, or both types of chunks.  
@@ -74,43 +74,43 @@ load(chunk [, chunkname [, mode [, env]]])
 
 #### Loading a String as a Chunk  
 ```lua
-local f, err = load("return 5 + 3")
-if f then
-    print(f())  -- Output: 8
+local compiledFunction, errorMessage = load("return 5 + 3")
+if compiledFunction then
+    print(compiledFunction())  -- Output: 8
 else
-    print("Error:", err)
+    print("Error:", errorMessage)
 end
 ```
 
 #### Handling Syntax Errors  
 ```lua
-local f, err = load("return 5 +")
-if not f then
-    print("Error:", err)  -- Output: Error: <error message>
+local compiledFunction, errorMessage = load("return 5 +")
+if not compiledFunction then
+    print("Error:", errorMessage)  -- Output: Error: <error message>
 end
 ```
 
 #### Loading a Function that Returns Code  
 ```lua
-local function getChunk()
+local function getChunkData()
     return "return 10 * 2"
 end
 
-local f, err = load(getChunk)
-if f then
-    print(f())  -- Output: 20
+local compiledFunction, errorMessage = load(getChunkData)
+if compiledFunction then
+    print(compiledFunction())  -- Output: 20
 else
-    print("Error:", err)
+    print("Error:", errorMessage)
 end
 ```
 
 #### Specifying a Chunk Name  
 ```lua
-local f, err = load("return 5 + 5", "my_chunk")
-if f then
-    print(f())  -- Output: 10
+local compiledFunction, errorMessage = load("return 5 + 5", "my_chunk")
+if compiledFunction then
+    print(compiledFunction())  -- Output: 10
 else
-    print("Error:", err)
+    print("Error:", errorMessage)
 end
 ```
 
@@ -118,11 +118,11 @@ end
 ```lua
 -- Example of loading a binary chunk
 local binaryChunk = "\27Lua"  -- This would be an actual binary chunk in practice
-local f, err = load(binaryChunk, "my_binary_chunk", "b")
-if f then
-    f()  -- Execute the loaded function
+local compiledFunction, errorMessage = load(binaryChunk, "my_binary_chunk", "b")
+if compiledFunction then
+    compiledFunction()  -- Execute the loaded function
 else
-    print("Error:", err)
+    print("Error:", errorMessage)
 end
 ```
 
@@ -138,7 +138,7 @@ end
    - Loading a malformed binary chunk is safe; the `load` function will return an appropriate error message.  
 
 3. **Runtime Environment**:  
-   - The environment for the loaded chunk can be controlled using the `env` parameter, allowing for sandboxing or encapsulation of the loaded code.  
+   - The environment for the loaded chunk can be controlled using the `environment` parameter, allowing for sandboxing or encapsulation of the loaded code.  
 
 4. **Consistency of Binary Chunks**:  
    - Lua does not check the validity of the contents of binary chunks, which could pose security risks if running untrusted code.  
@@ -151,3 +151,4 @@ end
 - **Behavior**: Supports dynamic loading and provides error handling for syntax issues.  
 - **Upvalues**: Allows setting the environment and controlling the number of upvalues.  
 - **Security**: Caution is advised when dealing with binary chunks to avoid potential crashes.  
+- 

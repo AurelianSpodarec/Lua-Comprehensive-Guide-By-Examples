@@ -7,9 +7,9 @@ The `table.sort()` sorts a table and returns its value sorted. If no value is pr
 
 ### Syntax
 ```Lua
-table.sort(tbl)
+table.sort(tableData)
 
-table.sort(tbl, value)
+table.sort(tableData, value)
 ```
 
 ### Parameters

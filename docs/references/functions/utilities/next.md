@@ -58,19 +58,19 @@ next(table [, index])
 
 #### Basic Usage  
 ```lua
-local myTable = {a = 1, b = 2, c = 3}
-local key, value = next(myTable)  -- Retrieves the first key-value pair
+local tableData = {a = 1, b = 2, c = 3}
+local key, value = next(tableData)  -- Retrieves the first key-value pair
 print(key, value)  -- Output: a 1
 ```
 
 #### Iterating Over a Table  
 ```lua
-local myTable = {a = 1, b = 2, c = 3}
-local key, value = next(myTable)  -- Get the first key-value pair
+local tableData = {a = 1, b = 2, c = 3}
+local key, value = next(tableData)  -- Get the first key-value pair
 
 while key do
     print(key, value)  -- Print current key-value pair
-    key, value = next(myTable, key)  -- Get the next key-value pair
+    key, value = next(tableData, key)  -- Get the next key-value pair
 end
 ```
 
@@ -86,15 +86,15 @@ end
 
 #### Modifying a Table During Iteration  
 ```lua
-local myTable = {a = 1, b = 2, c = 3}
-for key, value in next, myTable do
+local tableData = {a = 1, b = 2, c = 3}
+for key, value in next, tableData do
     if key == "b" then
-        myTable[key] = nil  -- Set the field 'b' to nil
+        tableData[key] = nil  -- Set the field 'b' to nil
     end
 end
 
 -- After modification
-for k, v in next, myTable do
+for k, v in next, tableData do
     print(k, v)  -- Output: a 1, c 3
 end
 ```

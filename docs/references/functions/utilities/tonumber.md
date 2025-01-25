@@ -8,16 +8,16 @@ The `tonumber` function in Lua is used to convert a given value into a number, e
 
 ### Syntax  
 ```lua
-tonumber(e [, base])
+tonumber(value [, base])
 ```
 
 ### Parameters  
 
-- **`e`**:  
+- **`value`**:  
   The value to be converted into a number. This can be a number or a string.
 
 - **`base`** (optional):  
-  An integer that specifies the base of the numeral system to interpret the string `e`. This base can range from 2 to 36.
+  An integer that specifies the base of the numeral system to interpret the string `value`. This base can range from 2 to 36.
 
 ---
 
@@ -30,13 +30,13 @@ tonumber(e [, base])
 ### Behavior  
 
 1. **Without Base**:  
-   - When called without the `base` parameter, `tonumber` attempts to convert `e` to a number. If `e` is already a number or a string that can be interpreted as a number (with possible leading/trailing spaces and a sign), it returns the corresponding numeric value.
-   - If `e` cannot be converted, it returns `nil`.
+   - When called without the `base` parameter, `tonumber` attempts to convert `value` to a number. If `value` is already a number or a string that can be interpreted as a number (with possible leading/trailing spaces and a sign), it returns the corresponding numeric value.
+   - If `value` cannot be converted, it returns `nil`.
 
 2. **With Base**:  
-   - If the `base` parameter is provided, `e` must be a string representing an integer in that base. The `base` can be any integer from 2 to 36.
+   - If the `base` parameter is provided, `value` must be a string representing an integer in that base. The `base` can be any integer from 2 to 36.
    - The letters 'A' to 'Z' (and 'a' to 'z') represent values from 10 to 35, respectively.
-   - If `e` is not a valid numeral in the specified base, the function returns `nil`.
+   - If `value` is not a valid numeral in the specified base, the function returns `nil`.
 
 ---
 

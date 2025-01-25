@@ -8,21 +8,21 @@ The `rawlen` function in Lua returns the length of a given object, which can be 
 
 ### Syntax  
 ```lua
-rawlen(v)
+rawlen(value)
 ```
 
 ### Parameters  
 
-- **`v`**:  
+- **`value`**:  
   The object whose length is to be determined. This can be either a table or a string.  
 
 ---
 
 ### Return Value  
 
-- Returns an integer representing the length of the object `v`.  
-- If `v` is a table, it returns the number of keys in the table.  
-- If `v` is a string, it returns the number of characters in the string.  
+- Returns an integer representing the length of the object `value`.  
+- If `value` is a table, it returns the number of keys in the table.  
+- If `value` is a string, it returns the number of characters in the string.  
 
 ---
 
@@ -52,8 +52,8 @@ print(rawlen(myString))  -- Output: 13 (length of the string)
 
 #### Using with Tables  
 ```lua
-local myTable = { a = 1, b = 2, c = 3 }
-print(rawlen(myTable))  -- Output: 3 (number of keys in the table)
+local tableData = { a = 1, b = 2, c = 3 }
+print(rawlen(tableData))  -- Output: 3 (number of keys in the table)
 
 local anotherTable = {}
 print(rawlen(anotherTable))  -- Output: 0 (empty table)
@@ -65,9 +65,9 @@ local mt = {
     __len = function() return 100 end  -- Custom length behavior
 }
 
-local myTable = setmetatable({ a = 1, b = 2 }, mt)
+local tableData = setmetatable({ a = 1, b = 2 }, mt)
 
-print(rawlen(myTable))  -- Output: 2 (actual number of keys in the table)
+print(rawlen(tableData))  -- Output: 2 (actual number of keys in the table)
 ```
 
 ---
@@ -87,6 +87,6 @@ print(rawlen(myTable))  -- Output: 2 (actual number of keys in the table)
 
 ### Summary  
 
-- **Purpose**: Returns the length of the object `v` without invoking the `__len` metamethod.  
+- **Purpose**: Returns the length of the object `value` without invoking the `__len` metamethod.  
 - **Return Behavior**: Returns the actual length of the string or the number of keys in the table.  
 - **Use Cases**: Determining actual length, debugging data structures.  

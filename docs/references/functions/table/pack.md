@@ -17,7 +17,7 @@ The values to combine into a newly created table
 ### Examples
 
 This will combine all values into a new table.
-```Lua
+```lua
 productID =  234 
 productName = "Dark Chocolate"
 productIngredients = { "Cocoa Mass", "Cocoa Butter", "Vanilla", "Cocoa Solids: 70% min" }

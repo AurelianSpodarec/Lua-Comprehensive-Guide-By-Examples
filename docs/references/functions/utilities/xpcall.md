@@ -8,7 +8,7 @@ The `xpcall` function in Lua is an extended version of `pcall` that allows for e
 
 ### Syntax  
 ```lua
-xpcall(f, msgh [, arg1, ···])
+xpcall(f, message [, arg1, ···])
 ```
 
 ### Parameters  
@@ -16,7 +16,7 @@ xpcall(f, msgh [, arg1, ···])
 - **`f`**:  
   The function to be called.
 
-- **`msgh`**:  
+- **`message`**:  
   A message handler function that will be called when an error occurs. This function receives the error message as its argument.
 
 - **`arg1, ···`**:  
@@ -36,7 +36,7 @@ xpcall(f, msgh [, arg1, ···])
    Similar to `pcall`, `xpcall` invokes the function `f` in protected mode, meaning that errors inside `f` do not propagate but are caught by `xpcall`.
 
 2. **Custom Error Handling**:  
-   If an error occurs, `xpcall` calls the provided message handler `msgh`, passing the error message to it. The handler can format or log the error message as needed.
+   If an error occurs, `xpcall` calls the provided message handler `message`, passing the error message to it. The handler can format or log the error message as needed.
 
 3. **Returns**:  
    - If the function `f` executes successfully, `xpcall` returns true followed by the results from `f`.
@@ -95,7 +95,7 @@ print(result)  -- Output: "Custom Error: Division by zero!"
 
 - **Custom Message Handler**: The message handler can perform additional operations, such as logging errors to a file or sending alerts.
 
-- **Error Message**: The error message passed to `msgh` can be modified or formatted as desired within the handler.
+- **Error Message**: The error message passed to `message` can be modified or formatted as desired within the handler.
 
 ---
 

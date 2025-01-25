@@ -6,11 +6,11 @@ The `table.insert()` method adds one element to the table.
 
 ### Syntax
 ```Lua
-table.insert(tbl, value)
+table.insert(tableData, value)
 ```
 
 ### Parameter
-`tbl`
+`tableData`
 The table where the item should be removed from.
 
 `value`

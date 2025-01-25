@@ -7,17 +7,17 @@ The `table.unpack()` returns all values from a table.
 ### Syntax
 
 ```Lua
-table.unpack(tbl)
+table.unpack(tableData)
 ```
 
 ### Parameters
-`tbl`
+`tableData`
 The table to be unpacked.
 
 ### Examples
 
 Unpacking a table
-```Lua
+```lua
 groceries = { "Bread", "Rice", "Peas" }
 print(table.unpack(groceries))
 

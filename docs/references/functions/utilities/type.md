@@ -8,19 +8,19 @@ The `type` function in Lua is used to determine the type of a given value. It re
 
 ### Syntax  
 ```lua
-type(v)
+type(value)
 ```
 
 ### Parameters  
 
-- **`v`**:  
+- **`value`**:  
   The value whose type is to be determined. This can be of any Lua type.
 
 ---
 
 ### Return Value  
 
-- Returns a string representing the type of the input value `v`.
+- Returns a string representing the type of the input value `value`.
 
 ---
 
