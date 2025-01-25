@@ -50,8 +50,14 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl:
-            'https://github.com/aurelianspodarec/luadocs/tree/main/',
+          editUrl:'https://github.com/aurelianspodarec/luadocs/tree/main/',
+          lastVersion: 'current',
+          versions: {
+            current: {
+              label: '5.4.0',
+              path: '',
+            },
+          },
         },
         blog: {
           showReadingTime: true,
@@ -81,7 +87,11 @@ const config: Config = {
         src: 'https://imgs.search.brave.com/KjiSEUxgHxkAad5nl7RNig3cqV4MRpGJ9hUeufy-p1o/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9jL2NmL0x1/YS1Mb2dvLnN2Zy82/NDBweC1MdWEtTG9n/by5zdmcucG5n',
       },
       items: [
-        { type: "docsVersionDropdown", position: "left" },
+        { 
+          type: "docsVersionDropdown", 
+          position: "left",
+          dropdownActiveClassDisabled: true,
+        },
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
@@ -91,14 +101,18 @@ const config: Config = {
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
-          href: 'https://github.com/AurelianSpodarec/LuaDocs',
-          label: 'GitHub',
+          href: 'https://discord.gg/Jp2HFx3KTH',
           position: 'right',
+          className: 'icon-link icon-link-mask icon-link-discord',
+          'aria-label': 'Discord',
+          target: '_blank',
         },
         {
-          href: 'https://discord.gg/Jp2HFx3KTH',
-          label: 'Discord',
-          position: 'right'
+          href: 'https://github.com/AurelianSpodarec/LuaDocs',
+          position: 'right',
+          className: 'icon-link icon-link-mask icon-link-github',
+          'aria-label': 'GitHub repository',
+          target: '_blank',
         },
       ],
     },
