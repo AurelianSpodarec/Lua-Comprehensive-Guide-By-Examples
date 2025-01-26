@@ -9,7 +9,7 @@ import { Header } from '@/components/Header'
 import { Logo } from '@/components/Logo'
 import { Navigation } from '@/components/Navigation'
 import { type Section, SectionProvider } from '@/components/SectionProvider'
-import TableOfContents from './table-of-contents'
+// import TableOfContents from './table-of-contents'
 // import { getSectionAndTitleBySlug } from '@/lib/api'
 
 export function Layout({ children, allSections }: { children: React.ReactNode, allSections: Record<string, Array<Section>> }) {
