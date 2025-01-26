@@ -5,7 +5,7 @@ import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
 import { type Section } from '@/components/SectionProvider'
 
-import '@/styles/tailwind.css'
+import '@/styles/styles.scss'
 
 export const metadata: Metadata = {
   title: {
