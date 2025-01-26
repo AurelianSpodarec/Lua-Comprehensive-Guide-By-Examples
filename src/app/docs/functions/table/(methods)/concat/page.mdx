@@ -1,0 +1,69 @@
+export const metadata = {
+  title: 'Table.concat()',
+  description:
+    'In this guide, we will look at how to work with paginated responses when querying the Protocol API',
+}
+
+# Table.concat()
+
+The `table.concat()` function combines the values in a table into a single string.
+
+## Syntax
+
+```lua
+table.concat(tableData, seperator)
+```
+
+## Parameter
+
+<Properties>
+  <Property name="tableData" type="table">
+    The table whose values will be concatenated into a string.
+  </Property>
+  <Property name="separator" type="string">
+    Used as a separator between values.
+  </Property>
+</Properties>
+
+{/* ## Return   */}
+{/* ## Description */}
+
+## Examples
+
+### When only the table is provided
+The function concatenates all values in the table without adding any separators.
+
+<CodeGroup title="Example">
+```lua
+local tableData = {"The","fox","jumps","over","the","lazy","dog",}
+
+print(table.concat(tableData)) 
+
+-- Output: Thefoxjumpsoverthelazydog
+```
+</CodeGroup>
+
+### When a separator is provided
+The function inserts the specified separator between the values in the table.
+
+<CodeGroup title="Example 1"  label='Using a space (" ") as the separator'>
+```lua
+local tableData = { "Twinkle", "little", "star", "what", "I", "wonder", "what", "you", "are" }
+
+print(table.concat(tableData," ")) 
+
+-- Output: The rocket lands on the moon
+```
+</CodeGroup>
+
+{/* #### Example 2: Using a hyphen ("-") as the separator */}
+
+<CodeGroup title="Example 2"  label='Using a hyphen ("-") as the separator'>
+```lua
+local tableData = { "The", "rocket", "lands", "on", "the", "moon" }
+
+print(table.concat(tableData, "-")) 
+
+-- Output: The-rocket-lands-on-the-moon
+```
+</CodeGroup>

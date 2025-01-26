@@ -1,0 +1,43 @@
+export const metadata = {
+  title: 'Table.insert()',
+  description:
+    'In this guide, we will look at how to work with paginated responses when querying the Protocol API',
+}
+
+# Table.insert()
+
+The `table.insert()` method adds one element to the table.
+
+## Syntax
+```lua
+table.insert(tableData, value)
+```
+
+## Parameter
+
+<Properties>
+  <Property name="tableData" type="table">
+    The table where the item should be removed from.
+  </Property>
+  <Property name="value">
+    The element to add to the end of the table.
+  </Property>
+</Properties>
+
+## Examples
+
+### Adding a value to the End of the Table
+This function inserts a value at the end of a table.
+
+<CodeGroup title="Example 1" label='Adding "Moon" to the End of the Table'>
+```lua
+local galaxy = { "Sun", "Earth" }
+table.insert(galaxy, "Moon")
+
+-- Output: galaxy = { "Sun", "Earth", "Moon" }
+```
+</CodeGroup>
+
+## See Also
+
+`table.pack()`  

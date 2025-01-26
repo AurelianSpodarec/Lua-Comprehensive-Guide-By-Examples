@@ -1,0 +1,80 @@
+export const metadata = {
+  title: 'Table.unpack()',
+  description:
+    'In this guide, we will look at how to work with paginated responses when querying the Protocol API',
+}
+
+# Table.unpack()
+
+The `table.unpack()` method returns all values from a table. It is commonly used to unpack elements for function arguments or processing.
+
+## Syntax
+```lua
+table.unpack(tableData)
+```
+
+## Parameters
+
+<Properties>
+  <Property name="tableData" type="table">
+    The table to unpack.
+  </Property>
+</Properties>
+
+## Description
+- The method sequentially returns all values stored in the table starting from index 1.
+- If the table contains nested tables, their references are returned, not their contents.
+- Primarily used for unpacking arguments in Lua functions.
+
+:::note
+The method only works with sequential tables starting from index 1. Gaps or non-numeric keys may cause unexpected results.
+:::
+
+## Examples
+
+### Unpacking a Table
+This example demonstrates how to unpack a table of strings.
+
+<CodeGroup title="Example 1" label='Unpacking a Simple Table'>
+```lua
+local groceries = { "Bread", "Rice", "Peas" }
+print(table.unpack(groceries))
+
+-- Output: Bread Rice Peas
+```
+</CodeGroup>
+
+### Unpacking a Table with Nested Tables
+When unpacking a table containing other tables, their memory addresses are returned.
+
+<CodeGroup title="Example 2" label='Unpacking a Table with Nested Tables'>
+```lua
+local groceries = {
+    {
+        id = 31,
+        name = "Bread",
+        quantity = 2
+    },
+    {
+        id = 242,
+        name = "Rice",
+        quantity = 1
+    },
+    {
+        id = 493,
+        name = "Peas",
+        quantity = 1
+    }
+}
+
+print(table.unpack(groceries))
+
+-- Output: table: 0x55db576a62a0 table: 0x55db576a4dd0 table: 0x55db941a4dd1
+```
+</CodeGroup>
+
+## See Also
+
+`table.sort()`  
+`table.insert()`  
+`table.remove()`

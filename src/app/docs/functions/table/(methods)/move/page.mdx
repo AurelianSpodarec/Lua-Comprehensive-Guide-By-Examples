@@ -1,0 +1,93 @@
+export const metadata = {
+  title: 'Table.move()',
+  description:
+    'In this guide, we will look at how to work with paginated responses when querying the Protocol API',
+}
+
+# Table.move()
+
+The `table.move()` method moves a range of elements from one part of a table to another. This method is useful for rearranging elements or copying them within a table.
+
+## Syntax
+```lua
+table.move(sourceTable, startIndex, endIndex, destinationIndex, targetTable)
+```
+
+## Parameters
+
+<Properties>
+  <Property name="sourceTable" type="table">
+    The table containing the elements to move.
+  </Property>
+  <Property name="startIndex" type="number">
+    The starting index of the range to move.
+  </Property>
+  <Property name="endIndex" type="number">
+    The ending index of the range to move.
+  </Property>
+  <Property name="destinationIndex" type="number">
+    The index in the target table where the elements should be placed.
+  </Property>
+  <Property name="targetTable" type="table (optional)">
+    The table to move the elements to. If not provided, elements are moved within the source table.
+  </Property>
+</Properties>
+
+## Description
+- Moves elements from the specified range (`startIndex` to `endIndex`) in `sourceTable` to the `destinationIndex` in `targetTable`.
+- If `targetTable` is omitted, the elements are rearranged within `sourceTable`.
+- The operation can overwrite existing elements in the target table.
+- Returns the `targetTable` for chaining or further operations.
+
+:::note
+The method does not validate overlapping ranges; users should ensure the ranges and destination are logically correct.
+:::
+
+## Examples
+
+### Moving Elements Within the Same Table
+This example demonstrates moving elements within a single table.
+
+<CodeGroup title="Example 1" label='Rearranging Elements in a Table'>
+```lua
+local data = { "a", "b", "c", "d", "e" }
+
+table.move(data, 2, 4, 1)
+
+-- Output: data = { "b", "c", "d", "a", "e" }
+```
+</CodeGroup>
+
+### Copying Elements to a New Table
+This example demonstrates copying elements from one table to another.
+
+<CodeGroup title="Example 2" label='Copying Elements to a New Table'>
+```lua
+local source = { 1, 2, 3, 4, 5 }
+local target = {}
+
+table.move(source, 2, 4, 1, target)
+
+-- Output: target = { 2, 3, 4 }
+```
+</CodeGroup>
+
+### Overlapping Ranges
+When ranges overlap, the method still performs the operation without errors.
+
+<CodeGroup title="Example 3" label='Overlapping Range in the Same Table'>
+```lua
+local data = { "x", "y", "z", "w", "v" }
+
+table.move(data, 3, 5, 2)
+
+-- Output: data = { "x", "z", "w", "v", "v" }
+```
+</CodeGroup>
+
+## See Also
+
+`table.unpack()`  
+`table.sort()`  
+`table.insert()`  
+`table.remove()`

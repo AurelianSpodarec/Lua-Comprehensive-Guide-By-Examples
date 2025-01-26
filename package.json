@@ -1,50 +1,56 @@
 {
-  "name": "luadocs-com",
-  "version": "0.0.0",
+  "name": "lua-docs",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
+  "browserslist": "defaults, not ie <= 11",
   "dependencies": {
-    "@docusaurus/core": "3.7.0",
-    "@docusaurus/plugin-google-analytics": "^3.7.0",
-    "@docusaurus/preset-classic": "3.7.0",
+    "@algolia/autocomplete-core": "^1.7.3",
+    "@headlessui/react": "^2.1.0",
+    "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
-    "clsx": "^2.0.0",
-    "docusaurus-plugin-sass": "^0.2.6",
-    "prism-react-renderer": "^2.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@next/mdx": "^14.0.4",
+    "@sindresorhus/slugify": "^2.1.1",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/mdx": "^2.0.8",
+    "@types/node": "^20.10.8",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-highlight-words": "^0.16.4",
+    "acorn": "^8.8.1",
+    "clsx": "^2.1.0",
+    "fast-glob": "^3.3.0",
+    "flexsearch": "^0.7.31",
+    "framer-motion": "^10.18.0",
+    "mdast-util-to-string": "^4.0.0",
+    "mdx-annotations": "^0.1.1",
+    "next": "^14.0.4",
+    "next-themes": "^0.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-highlight-words": "^0.20.0",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.0",
+    "remark-mdx": "^3.0.0",
+    "shiki": "^0.14.7",
+    "simple-functional-loader": "^1.2.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.3.3",
+    "unist-util-filter": "^5.0.1",
+    "unist-util-visit": "^5.0.0",
+    "zustand": "^4.3.2"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.7.0",
-    "@docusaurus/tsconfig": "3.7.0",
-    "@docusaurus/types": "3.7.0",
-    "sass": "^1.83.4",
-    "typescript": "~5.6.2"
-  },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 3 chrome version",
-      "last 3 firefox version",
-      "last 5 safari version"
-    ]
-  },
-  "engines": {
-    "node": ">=18.0"
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "prettier": "^3.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.10",
+    "sharp": "0.33.1"
   }
 }

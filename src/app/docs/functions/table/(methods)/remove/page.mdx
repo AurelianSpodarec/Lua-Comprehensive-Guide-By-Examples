@@ -1,0 +1,92 @@
+export const metadata = {
+  title: 'Table.remove()',
+  description:
+    'In this guide, we will look at how to work with paginated responses when querying the Protocol API',
+}
+
+# Table.remove()
+
+The `table.remove()` method removes one element from the table.  
+
+## Syntax
+```lua
+table.remove(tableData, index)
+```
+
+## Parameters
+
+<Properties>
+  <Property name="tableData" type="table">
+    The table where the item should be removed from.
+  </Property>
+  <Property name="index" type="number" optional="true">
+    The index (position) of the element to remove. If omitted, the last element is removed by default.
+  </Property>
+</Properties>
+
+## Description
+- Removes the last item if no `index` is specified.
+- The method removes one element from a table at the specified index.
+
+:::note
+If the table is an associative array (e.g., `{ name = "Bob", age = 30 }`), this method will not remove an element by key.
+:::
+
+## Examples
+
+### Removing an Element from the Middle of a Table
+This example removes the second element from a table.
+
+<CodeGroup title="Example 1" label='Removing "Rice" from the Groceries Table'>
+```lua
+local groceries = { "Bread", "Rice", "Peas" }
+table.remove(groceries, 2)
+
+-- Output: groceries = { "Bread", "Peas" }
+```
+</CodeGroup>
+
+### Removing the Last Element of a Table
+If no `index` is provided, the last element will be removed by default.
+
+<CodeGroup title="Example 2" label='Removing the Last Element'>
+```lua
+local fruits = { "Apple", "Banana", "Cherry" }
+table.remove(fruits)
+
+-- Output: fruits = { "Apple", "Banana" }
+```
+</CodeGroup>
+
+### Removing an Element by Setting it to `nil`
+Setting an element to `nil` does not change the table's length.
+
+<CodeGroup title="Example 3" label='Making an Element Nil'>
+```lua
+local animals = { "Dog", "Cat", "Bird" }
+animals[2] = nil
+
+-- Output: animals = { "Dog", nil, "Bird" }
+```
+</CodeGroup>
+
+Looping through a table with `nil` values will skip the `nil` elements.
+
+<CodeGroup title="Example 4" label='Ignoring Nil Values in a Loop'>
+```lua
+local animals = { "Dog", "Cat", "Bird" }
+animals[2] = nil
+
+for i = 1, #animals do
+    print(animals[i])
+end
+
+-- Output:
+-- Dog
+-- Bird
+```
+</CodeGroup>
+
+## See Also
+
+`table.insert()`

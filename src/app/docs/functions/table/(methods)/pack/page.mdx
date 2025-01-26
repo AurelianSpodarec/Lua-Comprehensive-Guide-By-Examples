@@ -1,0 +1,60 @@
+export const metadata = {
+  title: 'Table.pack()',
+  description:
+    'In this guide, we will explore how to combine multiple grocery items into a newly created table using the table.pack() method.',
+}
+
+# Table.pack()
+
+The `table.pack()` method is used to combine values into a newly created table.
+
+## Syntax
+```lua
+table.pack(elements)
+```
+
+## Parameter
+
+<Properties>
+  <Property name="elements" type="varied">
+    The values to combine into a newly created table.
+  </Property>
+</Properties>
+
+## Examples
+
+### Combining Grocery Items into a New Table
+This function combines multiple grocery items into a new table.
+
+<CodeGroup title="Example 1" label='Creating a Grocery List'>
+```lua
+local itemID = 101 
+local itemName = "Organic Avocado"
+local itemCategory = "Fruits"
+local itemQuantity = 3
+
+local groceryList = table.pack(itemID, itemName, itemCategory, itemQuantity)
+
+print(groceryList)
+
+-- Output: table: 0x564c9ac0a210
+```
+</CodeGroup>
+
+### Accessing the Quantity of a Grocery Item
+You can access the combined values and retrieve specific information from the new table.
+
+<CodeGroup title="Example 2" label='Getting the Category of the item'>
+```lua
+local itemID = 101 
+local itemName = "Organic Avocado"
+local itemCategory = "Fruits"
+local itemQuantity = 3
+
+local groceryList = table.pack(itemID, itemName, itemCategory, itemQuantity)
+
+print(groceryList[3])
+
+-- Output: "Fruits"
+```
+</CodeGroup>
