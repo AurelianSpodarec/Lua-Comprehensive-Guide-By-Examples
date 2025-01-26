@@ -1,3 +1,44 @@
 ---
   title: math.deg() 
 ---
+
+## `math.deg`
+
+The `math.deg` function converts an angle from radians to degrees.
+
+### Syntax  
+
+```lua
+math.deg(x)
+```
+
+### Parameters  
+
+- **x**: A number representing an angle in radians.
+
+### Return Value  
+
+- `Returns the angle in degrees, calculated as \( x \times \frac{180}{\pi} \).`
+
+### Description  
+
+The `math.deg` function is useful for converting radian measurements into degrees, which is often a more intuitive way to express angles, especially in contexts like geometry, navigation, and various fields of engineering.
+
+### Examples  
+
+#### Basic usage of `math.deg()`
+
+```lua
+print(math.deg(0))               -- Output: 0
+print(math.deg(math.pi / 2))     -- Output: 90
+print(math.deg(math.pi))          -- Output: 180
+print(math.deg(3 * math.pi / 2)) -- Output: 270
+print(math.deg(2 * math.pi))      -- Output: 360
+```
+
+### See also  
+
+- `math.rad()`
+- `math.sin()`
+- `math.cos()`
+- `math.tan()`
