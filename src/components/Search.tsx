@@ -1,5 +1,5 @@
-'use client'
 
+'use client'
 import {
   forwardRef,
   Fragment,
@@ -21,7 +21,7 @@ import {
 import { Dialog, DialogPanel, DialogBackdrop } from '@headlessui/react'
 import clsx from 'clsx'
 
-import { navigation } from '@/app/docs/_components/Navigation'
+import { INavLink, navigation } from '@/app/docs/_components/Navigation'
 import { type Result } from '@/mdx/search.mjs'
 
 type EmptyObject = Record<string, never>
@@ -160,24 +160,17 @@ function HighlightQuery({ text, query }: { text: string; query: string }) {
   )
 }
 
-function SearchResult({
-  result,
-  resultIndex,
-  autocomplete,
-  collection,
-  query,
-}: {
-  result: Result
-  resultIndex: number
-  autocomplete: Autocomplete
-  collection: AutocompleteCollection<Result>
-  query: string
-}) {
+function isNavLink(link: INavLink | { title: string; links: INavLink[] }): link is INavLink {
+  return 'href' in link;
+}
+
+function SearchResult({ result, resultIndex, autocomplete, collection, query }: { result: Result, resultIndex: number, autocomplete: Autocomplete, collection: AutocompleteCollection<Result>, query: string }) {
   let id = useId()
 
   let sectionTitle = navigation.find((section) =>
-    section.links.find((link) => link.href === result.url.split('#')[0]),
-  )?.title
+    section.links.some((link) => isNavLink(link) && link.href === result.url.split('#')[0]),
+  )?.title;
+  
   let hierarchy = [sectionTitle, result.pageTitle].filter(
     (x): x is string => typeof x === 'string',
   )

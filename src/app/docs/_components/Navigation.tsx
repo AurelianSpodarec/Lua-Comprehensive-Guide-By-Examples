@@ -7,6 +7,7 @@ export interface INavLink {
 
 export interface INavGroup {
   title: string;
+  href?: string;
   links: Array<INavLink | { title: string; links: INavLink[] }>;
 }
 
