@@ -38,24 +38,24 @@ function PageLink({
 }
 
 function PageNavigation() {
-  let pathname = usePathname()
-  let allPages = navigation.flatMap((group) => group.links)
-  let currentPageIndex = allPages.findIndex((page) => page.href === pathname)
+  // let pathname = usePathname()
+  // let allPages = navigation.flatMap((group) => group.links)
+  // let currentPageIndex = allPages.findIndex((page) => page.href === pathname)
 
-  if (currentPageIndex === -1) {
-    return null
-  }
+  // if (currentPageIndex === -1) {
+  //   return null
+  // }
 
-  let previousPage = allPages[currentPageIndex - 1]
-  let nextPage = allPages[currentPageIndex + 1]
+  // let previousPage = allPages[currentPageIndex - 1]
+  // let nextPage = allPages[currentPageIndex + 1]
 
-  if (!previousPage && !nextPage) {
-    return null
-  }
+  // if (!previousPage && !nextPage) {
+  //   return null
+  // }
 
   return (
     <div className="flex">
-      {previousPage && (
+      {/* {previousPage && (
         <div className="flex flex-col items-start gap-3">
           <PageLink label="Previous" page={previousPage} previous />
         </div>
@@ -64,7 +64,7 @@ function PageNavigation() {
         <div className="ml-auto flex flex-col items-end gap-3">
           <PageLink label="Next" page={nextPage} />
         </div>
-      )}
+      )} */}
     </div>
   )
 }
