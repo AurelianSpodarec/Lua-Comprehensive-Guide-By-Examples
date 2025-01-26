@@ -6,10 +6,10 @@ const variantStyles = {
 }
 
 const colorStyles = {
-  sky: {
+  blue: {
     small: 'text-blue-500 dark:text-blue-400',
     medium:
-      'ring-sky-300 dark:ring-sky-400/30 bg-sky-400/10 text-blue-500 dark:text-blue-400',
+      'ring-blue-300 dark:ring-blue-400/30 bg-blue-400/10 text-blue-500 dark:text-blue-400',
   },
   sky: {
     small: 'text-sky-500',
