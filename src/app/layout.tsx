@@ -9,8 +9,8 @@ import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - lua API Reference',
-    default: 'lua API Reference',
+    template: '%s - Lua | Version 5.4 Docs',
+    default: 'Lua Version 5.4 Documentation',
   },
 }
 

@@ -34,7 +34,7 @@ export function Logo(props: React.ComponentPropsWithoutRef<'svg'>) {
           d='M890.6 261c33.5 65.8 51 138.6 51 212.5 0 258.4-209.7 468.1-468.1 468.1S5.4 731.9 5.4 473.5 215.1 5.4 473.5 5.4c83.1 0 164.6 22.1 236.2 63.9'
         ></path>
       </svg>
-      <span className="text-xl font-bold">lua</span>
+      <span className="text-xl font-bold">Lua</span>
     </div>
   )
 }

@@ -14,10 +14,10 @@ export const navigation: Array<INavGroup> = [
   {
     title: 'Getting started',
     links: [
-      { title: 'Introduction', href: '/' },
+      { title: 'Introduction', href: '/docs/introduction' },
       { title: 'FAQ', href: '/docs/faq' },
       { title: "Governance", href: "/docs/governance" },
-      { title: "Contributing", href: "/docs/contributing" }
+      { title: "Contributing", href: "/docs/contribution-guide" }
     ],
   },
   {
