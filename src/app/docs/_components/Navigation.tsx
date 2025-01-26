@@ -53,6 +53,7 @@ export const navigation: Array<INavGroup> = [
   {
     title: "String",
     links: [
+      { title: "String", href: "/docs/functions/string" },
       { title: "string.byte()", href: "/docs/functions/string/byte" },
       { title: "string.char()", href: "/docs/functions/string/char" },
       { title: "string.dump()", href: "/docs/functions/string/dump" },
@@ -75,6 +76,7 @@ export const navigation: Array<INavGroup> = [
   {
     title: "Math",
     links: [
+      { title: "Math", href: "/docs/functions/math" },
       { title: "math.abs()", href: "/docs/functions/math/abs" },
       { title: "math.acos()", href: "/docs/functions/math/acos" },
       { title: "math.asin()", href: "/docs/functions/math/asin" },
@@ -107,6 +109,7 @@ export const navigation: Array<INavGroup> = [
   {
     title: "Coroutine",
     links: [
+      { title: "Coroutine", href: "/docs/functions/coroutine" },
       { title: "coroutine.close()", href: "/docs/functions/coroutine/close" },
       { title: "coroutine.create()", href: "/docs/functions/coroutine/create" },
       { title: "coroutine.isyieldable()", href: "/docs/functions/coroutine/isyieldable" },
@@ -120,6 +123,7 @@ export const navigation: Array<INavGroup> = [
   {
     title: "IO",
     links: [
+      { title: "io", href: "/docs/functions/io" },
       { title: "io.close()", href: "/docs/functions/io/close" },
       { title: "io.flush()", href: "/docs/functions/io/flush" },
       { title: "io.input()", href: "/docs/functions/io/input" },
@@ -146,6 +150,7 @@ export const navigation: Array<INavGroup> = [
   {
     title: "OS",
     links: [
+      { title: "os", href: "/docs/functions/os" },
       { title: "os.clock()", href: "/docs/functions/os/clock" },
       { title: "os.date()", href: "/docs/functions/os/date" },
       { title: "os.difftime()", href: "/docs/functions/os/difftime" },
@@ -162,6 +167,7 @@ export const navigation: Array<INavGroup> = [
   {
     title: "Package",
     links: [
+      { title: "Package", href: "/docs/functions/package" },
       { title: "package.config()", href: "/docs/functions/package/config" },
       { title: "package.cpath()", href: "/docs/functions/package/cpath" },
       { title: "package.loaded()", href: "/docs/functions/package/loaded" },
@@ -175,6 +181,7 @@ export const navigation: Array<INavGroup> = [
   {
     title: "Debug",
     links: [
+      { title: "Debug", href: "/docs/functions/debug" },
       { title: "debug.debug()", href: "/docs/functions/debug/debug" },
       { title: "debug.gethook()", href: "/docs/functions/debug/gethook" },
       { title: "debug.getinfo()", href: "/docs/functions/debug/getinfo" },
@@ -196,6 +203,7 @@ export const navigation: Array<INavGroup> = [
   {
     title: "UTF8",
     links: [
+      { title: "utf8", href: "/docs/functions/utf8" },
       { title: "utf8.char()", href: "/docs/functions/utf8/char" },
       { title: "utf8.charpattern()", href: "/docs/functions/utf8/charpattern" },
       { title: "utf8.codepoint()", href: "/docs/functions/utf8/codepoint" },
