@@ -5,10 +5,11 @@ import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 
 import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
+import { Header } from '@/app/docs/_components/Header'
 import { Logo } from '@/components/Logo'
 import { Navigation } from '@/components/Navigation'
 import { type Section, SectionProvider } from '@/components/SectionProvider'
+import { HeroPattern } from './HeroPattern'
 // import TableOfContents from './table-of-contents'
 // import { getSectionAndTitleBySlug } from '@/lib/api'
 
@@ -33,6 +34,7 @@ export function Layout({ children, allSections }: { children: React.ReactNode, a
 
   return (
     <SectionProvider sections={allSections[pathname] ?? []}>
+      <HeroPattern />
       <div className="h-full lg:ml-72 xl:ml-80">
         <motion.header
           layoutScroll
