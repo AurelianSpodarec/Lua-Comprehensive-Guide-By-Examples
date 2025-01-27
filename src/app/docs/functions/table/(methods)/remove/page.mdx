@@ -1,92 +1,62 @@
 export const metadata = {
-  title: 'Table.remove()',
-  description:
-    'In this guide, we will look at how to work with paginated responses when querying the Protocol API',
-}
+  title: 'table.remove()',
+  description: 'Removes an element from a table at a specified position and returns the removed element.',
+};
 
-# Table.remove()
+# table.remove()
 
-The `table.remove()` method removes one element from the table.  
+The `table.remove()` function removes an element from a table at a specified position and shifts the subsequent elements down to fill the gap.
 
 ## Syntax
+
 ```lua
-table.remove(tableData, index)
+table.remove(tableData, position)
 ```
 
 ## Parameters
 
 <Properties>
   <Property name="tableData" type="table">
-    The table where the item should be removed from.
+    The table from which an element will be removed.
   </Property>
-  <Property name="index" type="number" optional="true">
-    The index (position) of the element to remove. If omitted, the last element is removed by default.
+  <Property name="position" type="number">
+    The position in the table of the element to remove. If omitted, the last element will be removed.
   </Property>
 </Properties>
 
-## Description
-- Removes the last item if no `index` is specified.
-- The method removes one element from a table at the specified index.
+## Return
 
-:::note
-If the table is an associative array (e.g., `{ name = "Bob", age = 30 }`), this method will not remove an element by key.
-:::
+The function returns the value of the removed element. If the table is empty or the specified position is out of range, it returns `nil`.
+
+## Description
+
+The `table.remove()` function is useful for deleting elements from a table and automatically reindexing the remaining elements. This function modifies the original table.
 
 ## Examples
 
-### Removing an Element from the Middle of a Table
-This example removes the second element from a table.
-
-<CodeGroup title="Example 1" label='Removing "Rice" from the Groceries Table'>
+### Removing an element from a specific position
 ```lua
-local groceries = { "Bread", "Rice", "Peas" }
-table.remove(groceries, 2)
-
--- Output: groceries = { "Bread", "Peas" }
+local fruits = {"Apple", "Banana", "Cherry"}
+local removedFruit = table.remove(fruits, 2)
+print(removedFruit)  -- Output: Banana
+print(table.concat(fruits, ", "))  -- Output: Apple, Cherry
 ```
-</CodeGroup>
 
-### Removing the Last Element of a Table
-If no `index` is provided, the last element will be removed by default.
-
-<CodeGroup title="Example 2" label='Removing the Last Element'>
+### Removing the last element
 ```lua
-local fruits = { "Apple", "Banana", "Cherry" }
-table.remove(fruits)
-
--- Output: fruits = { "Apple", "Banana" }
+local numbers = {1, 2, 3, 4, 5}
+local lastNumber = table.remove(numbers)
+print(lastNumber)  -- Output: 5
+print(table.concat(numbers, ", "))  -- Output: 1, 2, 3, 4
 ```
-</CodeGroup>
 
-### Removing an Element by Setting it to `nil`
-Setting an element to `nil` does not change the table's length.
-
-<CodeGroup title="Example 3" label='Making an Element Nil'>
+### Handling out-of-range positions
 ```lua
-local animals = { "Dog", "Cat", "Bird" }
-animals[2] = nil
-
--- Output: animals = { "Dog", nil, "Bird" }
+local emptyTable = {}
+local removedElement = table.remove(emptyTable, 1)
+print(removedElement)  -- Output: nil
 ```
-</CodeGroup>
 
-Looping through a table with `nil` values will skip the `nil` elements.
-
-<CodeGroup title="Example 4" label='Ignoring Nil Values in a Loop'>
-```lua
-local animals = { "Dog", "Cat", "Bird" }
-animals[2] = nil
-
-for i = 1, #animals do
-    print(animals[i])
-end
-
--- Output:
--- Dog
--- Bird
-```
-</CodeGroup>
-
-## See Also
-
-`table.insert()`
+## See also
+- `table.insert()`: Inserts a value into a table at a specified position.
+- `table.move()`: Moves elements within a table, potentially useful for rearranging after removals.

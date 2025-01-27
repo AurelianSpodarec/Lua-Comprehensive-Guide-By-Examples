@@ -1,60 +1,68 @@
 export const metadata = {
-  title: 'Table.pack()',
-  description:
-    'In this guide, we will explore how to combine multiple grocery items into a newly created table using the table.pack() method.',
-}
+  title: 'table.pack()',
+  description: 'Packages a variable number of arguments into a table, including a count of the arguments.',
+};
 
-# Table.pack()
+# table.pack()
 
-The `table.pack()` method is used to combine values into a newly created table.
+The `table.pack()` function packages a variable number of arguments into a table. It also includes a field called `n` that indicates the number of arguments passed.
 
 ## Syntax
+
 ```lua
-table.pack(elements)
+table.pack(...)
 ```
 
-## Parameter
+## Parameters
 
 <Properties>
-  <Property name="elements" type="varied">
-    The values to combine into a newly created table.
+  <Property name="..." type="any">
+    A variable number of arguments to be packed into a table.
   </Property>
 </Properties>
 
+## Return
+
+The function returns a table containing the provided arguments. The table has an additional field `n` that holds the count of the arguments.
+
+## Description
+
+The `table.pack()` function is useful for collecting multiple values into a single table. This is particularly helpful when dealing with functions that accept a variable number of arguments, allowing you to handle them as a single collection.
+
 ## Examples
 
-### Combining Grocery Items into a New Table
-This function combines multiple grocery items into a new table.
-
-<CodeGroup title="Example 1" label='Creating a Grocery List'>
+### Packing multiple values into a table
 ```lua
-local itemID = 101 
-local itemName = "Organic Avocado"
-local itemCategory = "Fruits"
-local itemQuantity = 3
-
-local groceryList = table.pack(itemID, itemName, itemCategory, itemQuantity)
-
-print(groceryList)
-
--- Output: table: 0x564c9ac0a210
+local packedTable = table.pack(1, "Hello", true, {1, 2, 3})
+print(packedTable.n)  -- Output: 4
+print(packedTable[1])  -- Output: 1
+print(packedTable[2])  -- Output: Hello
 ```
-</CodeGroup>
 
-### Accessing the Quantity of a Grocery Item
-You can access the combined values and retrieve specific information from the new table.
-
-<CodeGroup title="Example 2" label='Getting the Category of the item'>
+### Handling nil values
 ```lua
-local itemID = 101 
-local itemName = "Organic Avocado"
-local itemCategory = "Fruits"
-local itemQuantity = 3
-
-local groceryList = table.pack(itemID, itemName, itemCategory, itemQuantity)
-
-print(groceryList[3])
-
--- Output: "Fruits"
+local packedWithNil = table.pack(1, nil, 3)
+print(packedWithNil.n)  -- Output: 3
+print(packedWithNil[2])  -- Output: nil
 ```
-</CodeGroup>
+
+### Using with a variable number of arguments
+```lua
+local function showArgs(...)
+    local args = table.pack(...)
+    print("Number of arguments:", args.n)
+    for i = 1, args.n do
+        print("Argument " .. i .. ":", args[i])
+    end
+end
+
+showArgs("A", "B", "C")  
+-- Output:
+-- Number of arguments: 3
+-- Argument 1: A
+-- Argument 2: B
+-- Argument 3: C
+```
+
+## See also
+- `table.unpack()`: Unpacks the values from a table back into individual arguments.
