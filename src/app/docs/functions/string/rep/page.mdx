@@ -1,42 +1,80 @@
----
+export const metadata = {
+  title: 'string.rep()',
+  description: 'The `string.rep()` function creates a new string by repeating a specified string a given number of times.',
+};
 
-    title: string.rep() 
+# string.rep()
 
----
+The `string.rep()` function in Lua is used to generate a new string by repeating an existing string a specified number of times. This is useful for creating strings with repeated patterns or for formatting output.
 
-The `string.rep` function repeats a string a specified number of times.
+## Syntax
 
-### Syntax  
 ```lua
-string.rep(s, n, sep)
-```  
+string.rep(string, times)
+```
 
-### Parameters  
+## Parameters
 
-#### `s`  
-The string to repeat.  
+<Properties>
+  <Property name="string" type="string">
+    The string that will be repeated.
+  </Property>
+  <Property name="times" type="number">
+    The number of times to repeat the string. It must be a positive integer.
+  </Property>
+</Properties>
 
-#### `n`  
-The number of times to repeat the string.  
+## Return Value
+Returns a new string that is the result of repeating the input string the specified number of times. If `times` is less than or equal to zero, an empty string is returned.
 
-#### `sep (optional)`  
-A string to insert between repetitions. Defaults to an empty string.  
+## Examples
 
-### Examples  
+### Example 1: Basic String Repetition
+Repeat a simple string multiple times.
 
-#### Basic repetition.
+<CodeGroup title="Example 1">
 ```lua
-local result = string.rep("lua", 3)
-print(result)
+local repeated = string.rep("Lua ", 3)
+print(repeated)  -- Output: Lua Lua Lua 
+```
+</CodeGroup>
 
--- Output: lualualua
-```  
+### Example 2: Repeating with Different Values
+Repeat a string with different numbers.
 
-#### Using a separator.
+<CodeGroup title="Example 2">
 ```lua
-local result = string.rep("lua", 3, "-")
-print(result)
+local repeated = string.rep("A", 5)
+print(repeated)  -- Output: AAAAA
+```
+</CodeGroup>
 
--- Output: lua-lua-lua
-```  
+### Example 3: Handling Zero and Negative Values
+Demonstrate behavior when `times` is zero or negative.
 
+<CodeGroup title="Example 3">
+```lua
+local empty = string.rep("Hello", 0)
+print(empty)  -- Output: (empty string)
+
+local negative = string.rep("Hello", -1)
+print(negative)  -- Output: (empty string)
+```
+</CodeGroup>
+
+### Example 4: Creating Patterns
+Use `string.rep()` to create a string pattern.
+
+<CodeGroup title="Example 4">
+```lua
+local pattern = string.rep("-", 10)
+print(pattern)  -- Output: ----------
+```
+</CodeGroup>
+
+## Use Cases
+- **Output Formatting**: Creating formatted output for console display or logs.
+- **String Manipulation**: Building strings with repeated elements for various applications.
+
+## See also
+- **`string.len()`**: Returns the length of a string, useful in conjunction with `string.rep()` for formatting.

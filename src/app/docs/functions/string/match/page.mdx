@@ -1,81 +1,120 @@
----
+export const metadata = {
+  title: 'string.match()',
+  description: 'The `string.match()` function searches for a pattern in a string and returns the first match found.',
+};
 
-    title: string.match() 
+# string.match()
 
----
+The `string.match()` function in Lua searches for a specified pattern in a string and returns the first occurrence of the match. If no match is found, it returns `nil`. This function is particularly useful for extracting substrings or validating input formats.
 
-The `string.match` function searches a string for the first match of a pattern and returns it.
+## Syntax
 
-| **Pattern**         | **Description**                                                                 |
-|----------------------|---------------------------------------------------------------------------------|
-| `%a`                | Matches any letter (A-Z, a-z).                                                 |
-| `%A`                | Matches any non-letter character.                                              |
-| `%d`                | Matches any digit (0-9).                                                       |
-| `%D`                | Matches any non-digit character.                                               |
-| `%l`                | Matches any lowercase letter (a-z).                                            |
-| `%L`                | Matches any non-lowercase letter.                                              |
-| `%u`                | Matches any uppercase letter (A-Z).                                            |
-| `%U`                | Matches any non-uppercase letter.                                              |
-| `%w`                | Matches any alphanumeric character (letters and digits).                       |
-| `%W`                | Matches any non-alphanumeric character.                                        |
-| `%s`                | Matches any space character (spaces, tabs, newlines).                         |
-| `%S`                | Matches any non-space character.                                               |
-| `%p`                | Matches any punctuation character.                                             |
-| `%P`                | Matches any non-punctuation character.                                         |
-| `%x`                | Matches any hexadecimal digit (0-9, A-F, a-f).                                 |
-| `%X`                | Matches any non-hexadecimal digit.                                             |
-| `%z`                | Matches the null character (`\0`).                                             |
-| `.`                 | Matches any character (except newline by default).                             |
-| `%`                 | Escape character, used to match special characters like `.` or `%`.            |
-| `[set]`             | Matches any character in the set (e.g., `[abc]` matches `a`, `b`, or `c`).     |
-| `[^set]`            | Matches any character not in the set (e.g., `[^abc]` matches any except `a, b, c`). |
-| `x*`                | Matches 0 or more occurrences of `x`.                                          |
-| `x+`                | Matches 1 or more occurrences of `x`.                                          |
-| `x-`                | Matches 0 or more occurrences of `x` (as few as possible).                     |
-| `x?`                | Matches 0 or 1 occurrence of `x`.                                              |
-| `x{n}`              | Matches exactly `n` occurrences of `x`.                                        |
-| `x{n,}`             | Matches at least `n` occurrences of `x`.                                       |
-| `x{n,m}`            | Matches between `n` and `m` occurrences of `x`.                                |
-| `^`                 | Matches the beginning of the string.                                           |
-| `$`                 | Matches the end of the string.                                                 |
-
-
-### Syntax  
 ```lua
 string.match(s, pattern, init)
-```  
+```
 
-### Parameters  
+## Parameters
 
-#### `s`  
-The string to search in.  
+<Properties>
+  <Property name="s" type="string">
+    The string to be searched for the specified pattern.
+  </Property>
+  <Property name="pattern" type="string">
+    The pattern to search for in the string. Lua's pattern matching syntax is used.
+  </Property>
+  <Property name="init" type="number" optional="true">
+    The starting position in the string from which to begin searching. Defaults to `1` if not provided.
+  </Property>
+</Properties>
 
-#### `pattern`  
-The pattern to search for.  
+## Return Value
+Returns the first match found as a string. If no match is found, it returns `nil`.
 
-#### `init (optional)`  
-The starting position for the search. Defaults to `1`.  
+## Pattern Table
+Here are some commonly used patterns in Lua's pattern matching:
 
-### Return Value  
-Returns the first match of the pattern or `nil` if no match is found.
+| Pattern              | Description                                                   |
+|----------------------|---------------------------------------------------------------|
+| `.`                   | Matches any character (except a newline).                    |
+| `%a`                 | Matches any letter (alphabetical character).                 |
+| `%c`                 | Matches any control character.                                |
+| `%d`                 | Matches any digit (0-9).                                     |
+| `%l`                 | Matches any lowercase letter (a-z).                           |
+| `%u`                 | Matches any uppercase letter (A-Z).                           |
+| `%s`                 | Matches any space character (including spaces, tabs, etc.).  |
+| `%p`                 | Matches any punctuation character.                            |
+| `%w`                 | Matches any alphanumeric character (letters and digits).     |
+| `%x`                 | Matches any hexadecimal digit (0-9 and a-f).                 |
+| `*`                   | Matches 0 or more occurrences of the preceding element.      |
+| `+`                   | Matches 1 or more occurrences of the preceding element.      |
+| `-`                   | Matches 0 or more occurrences, but as few as possible (non-greedy). |
+| `?`                   | Matches 0 or 1 occurrence of the preceding element.          |
+| `^`                   | Matches the start of a string.                               |
+| `$`                   | Matches the end of a string.                                 |
+| `[...]`              | Matches any single character in the brackets.                |
+| `%<` and `%>`        | Matches the `<` and `>` characters.                          |
+| `%-`                 | Matches the `-` character.                                   |
+| `%%`                 | Matches the `%` character (escape sequence).                 |
 
-### Examples  
+## Examples
 
-#### Basic usage.
+### Example 1: Basic Pattern Matching
+Search for a simple substring within a string.
+
+<CodeGroup title="Example 1">
 ```lua
-local result = string.match("hello world", "world")
-print(result)
+local text = "Hello, Lua!"
 
--- Output: world
-```  
+local match = string.match(text, "Lua")
 
-#### Using patterns.
+print(match)  -- Output: Lua
+```
+</CodeGroup>
+
+### Example 2: Using Patterns
+Search for patterns using Lua's pattern syntax.
+
+<CodeGroup title="Example 2">
 ```lua
-local result = string.match("123-456-7890", "%d%d%d")
-print(result)
+local text = "The year is 2025."
 
--- Output: 123
-```  
+local match = string.match(text, "%d%d%d%d")  -- Matches a four-digit number
 
+print(match)  -- Output: 2025
+```
+</CodeGroup>
 
+### Example 3: Starting from a Specific Position
+Start searching from a specific position in the string.
 
+<CodeGroup title="Example 3">
+```lua
+local text = "Look at the stars, Look how they shine."
+
+local match = string.match(text, "Look", 10)  -- Start searching after the 9th character
+
+print(match)  -- Output: Look
+```
+</CodeGroup>
+
+### Example 4: No Match Found
+Return `nil` if no match is found.
+
+<CodeGroup title="Example 4">
+```lua
+local text = "Hello, Lua!"
+
+local match = string.match(text, "Python")
+
+print(match)  -- Output: nil
+```
+</CodeGroup>
+
+## Use Cases
+- **Input Validation**: Check if a string meets specific format requirements.
+- **Data Extraction**: Extract specific information from strings, such as dates or identifiers.
+- **Pattern Recognition**: Identify the presence of specific patterns in user input or text files.
+
+## See also
+- **`string.gmatch()`**: Iterates over all occurrences of a pattern in a string, allowing for more comprehensive pattern searches.
+- **`string.gsub()`**: Replaces occurrences of a pattern in a string, which can be useful after identifying matches with `string.match()`.

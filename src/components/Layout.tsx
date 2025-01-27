@@ -52,6 +52,7 @@ export function Layout({ children, allSections }: { children: React.ReactNode, a
         </motion.header>
 
         <div className="mx-auto grid w-full max-w-2xl grid-cols-1 gap-10 xl:max-w-5xl xl:grid-cols-[minmax(0,1fr)_var(--container-2xs)]">
+          {/* <h1>{allSections[pathname]}</h1> */}
           <main className="flex-auto">{children}</main>
 
           <div className="max-xl:hidden">
