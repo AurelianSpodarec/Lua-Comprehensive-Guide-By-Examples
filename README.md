@@ -1,46 +1,38 @@
-# lua
+# Welcome to Lua Web Docs
 
-lua is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+**[Lua Web Docs](https://luadocs.com)** is an open-source, collaborative project focused on creating clear and comprehensive documentation for Lua. It features detailed reference materials that are easy to understand and include practical examples.
 
-## Getting started
+## Mission
 
-To get started with this template, first install the npm dependencies:
+The mission of **[Lua Web Docs](https://luadocs.com)** is to provide a better reference guide for developers. We aim to address the shortcomings of the current official documentation, such as unclear explanations or the lack of examples, by delivering resources that are both practical and user-friendly.
 
-```bash
-npm install
-```
+## Getting Started
 
-Next, run the development server:
+Follow these steps to set up the project locally:
 
-```bash
-npm run dev
-```
+1. **Install dependencies:**
 
-Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
+   ```bash
+   npm install
+   ```
 
-## Customizing
+2. **Start the development server:**
 
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
+   ```bash
+   npm run dev
+   ```
 
-## Global search
+3. **Open the website:**
 
-This template includes a global search that's powered by the [FlexSearch](https://github.com/nextapps-de/flexsearch) library. It's available by clicking the search input or by using the `⌘K` shortcut.
+   Navigate to [http://localhost:3000](http://localhost:3000) in your browser to view the site.
 
-This feature requires no configuration, and works out of the box by automatically scanning your documentation pages to build its index. You can adjust the search parameters by editing the `/src/mdx/search.mjs` file.
+## Contributing
 
-## License
+Contributions are welcome. Whether it's fixing a typo, adding examples, or improving explanations, any input that enhances the documentation is appreciated.  
 
-This site template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license).
+Check the repository's contribution guidelines for details on how to get involved.
 
-## Learn more
+## Join Discord
 
-To learn more about the technologies used in this site template, see the following resources:
-
-- [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
-- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
-- [Headless UI](https://headlessui.dev) - the official Headless UI documentation
-- [Framer Motion](https://www.framer.com/docs/) - the official Framer Motion documentation
-- [MDX](https://mdxjs.com/) - the official MDX documentation
-- [Algolia Autocomplete](https://www.algolia.com/doc/ui-libraries/autocomplete/introduction/what-is-autocomplete/) - the official Algolia Autocomplete documentation
-- [FlexSearch](https://github.com/nextapps-de/flexsearch) - the official FlexSearch documentation
-- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) - the official Zustand documentation
+Discord Invite Link: https://discord.gg/Jp2HFx3KTH  
+GitHub Lua Discussion: https://github.com/AurelianSpodarec/LuaDocs/discussions
