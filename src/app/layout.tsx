@@ -35,7 +35,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           </div>
         </Providers>
       </body>
-      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID} />
+      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID!} />
     </html>
   )
 }
