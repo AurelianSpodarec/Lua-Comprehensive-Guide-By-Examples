@@ -1,5 +1,6 @@
 import { type Metadata } from 'next'
 import glob from 'fast-glob'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
@@ -34,6 +35,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           </div>
         </Providers>
       </body>
+      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID} />
     </html>
   )
 }
